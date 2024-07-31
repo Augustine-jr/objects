@@ -1,6 +1,6 @@
 // Learning objects
 // Example of object literal syntax
-const person = {
+/*const person = {
   name: 'Augustine Aneke',
   age: 30,
   hobbies: ['reading', 'painting'],
@@ -98,4 +98,91 @@ person1.hobbies = ['dating', 'painting'];
 console.log(person1.hobbies);
 // Adding new properties
 person1.nationality = 'Nigerian';
-console.log(person1.nationality); // Output: Nigerian
+
+// Assignment operator
+
+var a = 3;  // Initialize variable a with the value 3
+
+a += 2;     // a = a + 2 -> a = 3 + 2 -> a = 5
+a -= 1;     // a = a - 1 -> a = 5 - 1 -> a = 4
+a **= 2;    // a = a ** 2 -> a = 4 ** 2 -> a = 16 (exponentiation, equivalent to 4^2)
+a /= 4;     // a = a / 4 -> a = 16 / 4 -> a = 4
+a %= 3;     // a = a % 3 -> a = 4 % 3 -> a = 1 (remainder of 4 divided by 3)
+var result = a;  // Assign the final value of a to the variable result
+
+console.log(result);  // Output the value of result
+
+
+*/
+
+const product2 = {
+  name: 'shirt',
+  'delivery-time': '1 day',
+  rating: {     // Nested objects
+    stars: 4.5,
+    count: 87
+  },
+  fun: function function1() {
+    console.log('This is a function in the product object'); // when we save functions inside an object, this is called a Method.
+  }
+};
+ console.log(product2);
+ // Accessing the value using Dot Notation
+ console.log(product2.name);
+ console.log(product2.rating.count)
+ product2.fun();
+
+
+ // Accessing the value using Bracket Notation
+ console.log(product2['name']);
+ console.log(product2['delivery-time']);
+
+ // Modifying the value using Dot Notation
+ product2.name = 'T-shirt';
+ console.log(product2);
+
+ // Modifying the value using Bracket Notation
+ product2['name'] = 'Sweater';
+ console.log(product2);
+
+ // Deleting a property using Dot Notation
+ delete product2.name;
+ console.log(product2);
+
+ // Deleting a property using Bracket Notation
+ delete product2['name'];
+ console.log(product2);
+
+ // Creating a new property using Dot Notation
+ product2.color = 'Red';
+ console.log(product2);
+
+ // Creating a new property using Bracket Notation
+ product2['size'] = 'Large';
+ console.log(product2);
+
+ //Built-in objects JSON and localstorage
+ // JSON.stringify() method converts a JavaScript object or value to a JSON string
+/* var person = {name: 'John Doe', age: 30, city: 'New York'};
+ var jsonString = JSON.stringify(person);
+ console.log(jsonString);
+
+ // JSON.parse() method parses a JSON string and converts it to a JavaScript object
+ var jsonObject = JSON.parse(jsonString);
+ console.log(jsonObject);
+
+ // localStorage.setItem() method stores data with the specified key and value
+ localStorage.setItem('name', 'John Doe');
+ localStorage.setItem('age', '30');
+ localStorage.setItem('city', 'New York');
+
+ // localStorage.getItem() method retrieves data with the specified key
+ var name = localStorage.getItem('name');
+ var age = localStorage.getItem('age');
+ var city = localStorage.getItem('city');
+ console.log(name, age, city); */
+
+console.log(JSON.stringify(product2));
+
+const jsonString = JSON.stringify(product2);
+console.log(JSON.parse(jsonString));
