@@ -1,6 +1,6 @@
 // Learning objects
 // Example of object literal syntax
-/*const person = {
+const person = {
   name: 'Augustine Aneke',
   age: 30,
   hobbies: ['reading', 'painting'],
@@ -113,7 +113,7 @@ var result = a;  // Assign the final value of a to the variable result
 console.log(result);  // Output the value of result
 
 
-*/
+
 
 const product2 = {
   name: 'shirt',
@@ -186,3 +186,67 @@ console.log(JSON.stringify(product2));
 
 const jsonString = JSON.stringify(product2);
 console.log(JSON.parse(jsonString));
+
+// Destructuring
+//Array destructuring allows you to extract values from an array and assign them to variables in a single statement.
+// Without destructuring
+let arr = [1, 2, 3];
+let a = arr[0];
+let b = arr[1];
+let c = arr[2];
+console.log(a, b, c); // 1 2 3
+
+// With destructuring
+let [x, y, z] = arr;
+console.log(x, y, z); // 1 2 3
+
+// Object destructuring allows you to extract properties from an object and assign them to variables with matching names.
+// Without destructuring
+/*let obj = { name: 'John Doe', age: 30 };
+let name1 = obj.name;
+let age1 = obj.age;
+console.log(name1, age1); // John Doe 30
+// With destructuring
+let { name: newName, age: newAge } = obj;
+console.log(newName, newAge); // John Doe 30*/
+
+// Without destructuring
+let person = { name: "Alice", age: 25, job: "Developer" };
+let name = person.name;
+let age = person.age;
+let job = person.job;
+
+console.log(name, age, job); // Alice 25 Developer
+
+// With destructuring
+let { name, age, job } = person;
+console.log(name, age, job); // Alice 25 Developer
+ // Nested Destructuring
+ let user = {
+  id: 1,
+  info: {
+    name: "John",
+    address: {
+      city: "New York",
+      country: "USA"
+    }
+  }
+};
+
+let {
+  info: {
+    name,
+    address: { city, country }
+  }
+} = user;
+
+console.log(name); // John
+console.log(city); // New York
+console.log(country); // USA
+ 
+//function parameters
+ function greet({ name, age }) {
+  console.log(`Hello, my name is ${name} and I am ${age} years old.`);
+}
+
+greet({ name: "Alice", age: 25 }); // Hello, my name is Alice and I am 25 years old.
