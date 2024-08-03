@@ -1,6 +1,6 @@
 // Learning objects
 // Example of object literal syntax
-const person = {
+/*const person = {
   name: 'Augustine Aneke',
   age: 30,
   hobbies: ['reading', 'painting'],
@@ -182,10 +182,10 @@ const product2 = {
  var city = localStorage.getItem('city');
  console.log(name, age, city); */
 
-console.log(JSON.stringify(product2));
+/*console.log(JSON.stringify(product2));
 
 const jsonString = JSON.stringify(product2);
-console.log(JSON.parse(jsonString));
+console.log(JSON.parse(jsonString));*/
 
 // Destructuring
 //Array destructuring allows you to extract values from an array and assign them to variables in a single statement.
@@ -210,8 +210,9 @@ console.log(name1, age1); // John Doe 30
 let { name: newName, age: newAge } = obj;
 console.log(newName, newAge); // John Doe 30*/
 
-// Without destructuring
 let person = { name: "Alice", age: 25, job: "Developer" };
+
+// Accessing properties without destructuring
 let name = person.name;
 let age = person.age;
 let job = person.job;
@@ -219,10 +220,11 @@ let job = person.job;
 console.log(name, age, job); // Alice 25 Developer
 
 // With destructuring
-let { name, age, job } = person;
-console.log(name, age, job); // Alice 25 Developer
- // Nested Destructuring
- let user = {
+let { name: personName, age: personAge, job: personJob } = person;
+console.log(personName, personAge, personJob); // Alice 25 Developer
+
+// Nested Destructuring
+let user = {
   id: 1,
   info: {
     name: "John",
@@ -235,18 +237,52 @@ console.log(name, age, job); // Alice 25 Developer
 
 let {
   info: {
-    name,
+    name: userName,
     address: { city, country }
   }
 } = user;
 
-console.log(name); // John
+console.log(userName); // John
 console.log(city); // New York
 console.log(country); // USA
- 
-//function parameters
- function greet({ name, age }) {
+
+// Function parameters destructuring
+function greet({ name, age }) {
   console.log(`Hello, my name is ${name} and I am ${age} years old.`);
 }
 
 greet({ name: "Alice", age: 25 }); // Hello, my name is Alice and I am 25 years old.
+
+// Object with shorthand properties and methods
+let object1 = {
+  message: 'Good Job',
+  name: 'John Doe',
+  age: 30,
+  job: 'Developer'
+};
+
+// Destructuring with rest parameter
+let { message, jobRole } = object1;
+console.log(message); // Good Job
+console.log(jobRole); // Developer
+
+const { message: msg, ...rest } = object1;
+console.log(rest); // { name: 'John Doe', age: 30, job: 'Developer' }
+
+// Shorthand properties and methods
+const object5 = {
+  message // Equivalent to message: message
+};
+console.log(object5); // { message: 'Good Job' }
+
+const object6 = {
+  job,
+  /*method() { // Shorthand method syntax
+    console.log('That Nigga');
+  }*/ // This does the same thing as the code below
+  method() {
+    console.log('That Nigga');  
+  }
+};
+console.log(object6); // { job: 'Developer', method: [Function: method] }
+object6.method(); // That Nigga
